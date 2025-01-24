@@ -101,6 +101,22 @@ nav a:hover {
     border-bottom-color: var(--color-accent);
 }
 
+html[color-scheme='light'] input,
+html[color-scheme='light'] textarea,
+html[color-scheme='light'] button {
+    background-color: #fff;
+    color: #000;
+    border-color: #ccc;
+}
+
+html[color-scheme='dark'] input,
+html[color-scheme='dark'] textarea,
+html[color-scheme='dark'] button {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
 input,
 textarea,
 button {
