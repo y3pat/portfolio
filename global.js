@@ -42,3 +42,34 @@ for (let p of pages) {
     nav.append(a);
     
 }
+
+document.body.insertAdjacentHTML(
+    'afterbegin',
+    `
+    <label class="color-scheme">
+        Theme:
+        <select id="theme-selector">
+            <option value="automatic">Automatic</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+    </label>`
+);
+
+function setColorScheme(colorScheme) {
+    document.documentElement.setAttribute('color-scheme', colorScheme);
+    localStorage.colorScheme = colorScheme;
+}
+  
+const select = document.querySelector('.color-scheme select');
+  
+document.addEventListener('DOMContentLoaded', () => {
+    const savedColorScheme = localStorage.colorScheme || 'light';
+    setColorScheme(savedColorScheme);
+    select.value = savedColorScheme;
+});
+  
+select.addEventListener('input', function (event) {
+    const selectedScheme = event.target.value;
+    setColorScheme(selectedScheme);
+});
