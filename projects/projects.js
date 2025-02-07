@@ -1,13 +1,17 @@
 import { fetchJSON, renderProjects } from '../global.js';
 
-(async function () {
-    const projects = await fetchJSON('../lib/projects.json');
+const projects = await fetchJSON('../lib/projects.json');
 
-    const projectsContainer = document.querySelector('.projects');
+const projectsContainer = document.querySelector('.projects');
+console.log("Projects container:", projectsContainer);
 
-    const projectsTitle = document.querySelector('.projects-title');
+if (!projectsContainer) {
+    throw new Error("Projects container not found in the DOM!");
+}
 
-    projectsTitle.textContent = `Projects (${projects.length})`;
+const projectsTitle = document.querySelector('.projects-title');
+projectsTitle.textContent = `Projects (${projects.length})`;
 
-    renderProjects(projects, projectsContainer, 'h2');
-})();
+
+renderProjects(projects, projectsContainer, 'h2');
+
