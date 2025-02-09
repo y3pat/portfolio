@@ -1,14 +1,14 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
+        "title": "Exploration into Food.com Dataset",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis fugit expedita error nihil dolor et atque blanditiis labore facere, nemo veritatis reiciendis ipsum, ipsam at accusamus laborum aliquid fuga id!",
         "year": 2020
     },
     {
-        "title": "Adipisci in tempora similique.",
+        "title": "Craigslist Project",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "",
+        "description": "Created an API using FastAPI which allows users to search for items on Craigslist. The API returns the search results in JSON format.",
         "year": 2023
     },
     {
