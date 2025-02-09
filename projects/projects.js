@@ -17,7 +17,16 @@ projectsTitle.textContent = `Projects (${projects.length})`;
 renderProjects(projects, projectsContainer, 'h2');
 
 
-let data = [1, 2, 3, 4, 5, 5];
+
+let rolledData = d3.rollups(
+    projects,
+    (v) => v.length,
+    (d) => d.year 
+);
+
+let data = rolledData.map(([year, count]) => {
+    return { value: count, label: year };
+});
 
 let svg = d3.select('#projects-pie-plot');
 
@@ -26,7 +35,9 @@ let arcGenerator = d3.arc()
     .innerRadius(0) 
     .outerRadius(50); 
 
-let sliceGenerator = d3.pie();
+// let sliceGenerator = d3.pie();
+let sliceGenerator = d3.pie().value((d) => d.value);
+
 let arcData = sliceGenerator(data);
 
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
@@ -47,3 +58,10 @@ arcData.forEach((d, idx) => {
 //     .attr('d', arc) 
 //     .attr('fill', 'red'); 
 
+let legend = d3.select('.legend');
+
+data.forEach((d, idx) => {
+    legend.append('li')
+          .attr('style', `--color:${colors(idx)}`)
+          .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
+});

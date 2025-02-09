@@ -192,3 +192,33 @@ h1, h2, h3, h4, h5, h6 {
     margin-block: 2em;
     overflow: visible;
 }
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+.legend {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+    gap: 1em;
+    padding: 1em;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+}
+
+.legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.swatch {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: var(--color);
+    border-radius: 50%;
+}
