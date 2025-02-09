@@ -222,3 +222,34 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--color);
     border-radius: 50%;
 }
+
+.searchBar {
+    display: block;
+    margin: 1em auto;
+    padding: 0.5em;
+    width: 50%;
+    max-width: 400px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+    opacity: 0.5;
+}
+  
+path {
+    transition: 300ms;
+    cursor: pointer;
+}
+  
+
+.selected {
+    --color: oklch(60% 45% 0) !important;
+    fill: oklch(60% 45% 0);
+}
+  
+.selected path {
+    fill: var(--color);
+}
+  
