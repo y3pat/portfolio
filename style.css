@@ -181,3 +181,14 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0.5em 0;
 }
 
+.project-year {
+    font-style: italic;
+    color: gray;
+    margin-top: 0.5em;
+}
+
+#projects-pie-plot {
+    max-width: 20em;
+    margin-block: 2em;
+    overflow: visible;
+}
