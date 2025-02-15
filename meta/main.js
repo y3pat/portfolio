@@ -11,6 +11,7 @@ async function loadData() {
         datetime: new Date(row.datetime),
     }));
     processCommits();
+    displayStats();
 }
 
 function processCommits() {
@@ -42,8 +43,39 @@ function processCommits() {
             return ret;
         });
 
-    console.log("Processed Commits:", commits);
 }
+
+function displayStats() {
+    // Process commits first
+    processCommits();
+
+    // Create the <dl> element
+    const dl = d3.select('#stats').append('dl').attr('class', 'stats');
+
+    // Add total LOC
+    dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
+    dl.append('dd').text(data.length);
+
+    // Add total commits
+    dl.append('dt').text('Total commits');
+    dl.append('dd').text(commits.length);
+
+    // Add total number of files
+    let totalFiles = d3.groups(data, (d) => d.file).length;
+    dl.append('dt').text('Total files');
+    dl.append('dd').text(totalFiles);
+
+    // Add maximum file length
+    let maxFileLength = d3.max(data, (d) => d.line);
+    dl.append('dt').text('Longest file (LOC)');
+    dl.append('dd').text(maxFileLength);
+
+    // Add average file length
+    let avgFileLength = d3.mean(data, (d) => d.line).toFixed(2);
+    dl.append('dt').text('Average file length (LOC)');
+    dl.append('dd').text(avgFileLength);
+}
+
 
 
 document.addEventListener('DOMContentLoaded', async () => {

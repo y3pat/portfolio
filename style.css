@@ -253,3 +253,24 @@ path {
     fill: var(--color);
 }
   
+.stats {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1rem;
+    max-width: 400px;
+    margin: 1rem auto;
+    padding: 1rem;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.stats dt {
+    font-weight: bold;
+    text-align: right;
+}
+
+.stats dd {
+    margin: 0;
+    text-align: left;
+}
