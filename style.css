@@ -285,7 +285,10 @@ path {
 }
 
 circle {
-    transition: 200ms;
+    @starting-style {
+        r: 0;
+    }
+    transition: all 200ms, r calc(var(--r) * 100ms);
     transform-origin: center;
     transform-box: fill-box;
 }
@@ -335,3 +338,62 @@ dl.info dt {
     animation: marching-ants 2s linear infinite;
 }
   
+#commit-filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+#commit-filter label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+}
+
+#time-slider {
+    flex-grow: 1;
+    width: 50%;
+    max-width: 500px;
+    height: 6px;
+    border-radius: 5px;
+    background: #ddd;
+    outline: none;
+    margin: 0 10px;
+    transition: background 0.3s;
+}
+
+#time-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #e6007a;
+    cursor: pointer;
+    position: relative;
+}
+
+#time-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #e6007a;
+    cursor: pointer;
+}
+
+#selectedTime {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 8px;
+    text-align: center;
+
+}
+
+
+
